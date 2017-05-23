@@ -5,9 +5,28 @@ import cheerio from 'cheerio'
 
 // inject for browser console
 const inject = {
-  R: R,
-  _: _,
-  $: $,
-  cheerio: cheerio,
+  // lib
+  l: {
+    R: R,
+    _: _,
+    $: $,
+    cheerio: cheerio,
+  },
+
+  // help
+  h: {
+    R: 'http://devdocs.io/ramda/',
+    _: 'http://devdocs.io/lodash/',
+    $: 'http://devdocs.io/jquery/',
+    cheerio: 'https://github.com/cheeriojs/cheerio',
+  }
 }
+
 window.xzinject = inject
+console.log('`xzinject` defined.')
+
+// short name
+if (typeof window['xz'] === 'undefined') {
+  window.xz = inject
+  console.log('`xz` defined.')
+}
